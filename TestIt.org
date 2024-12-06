@@ -1,0 +1,76 @@
+#+begin_src emacs-lisp
+(require 'ob-pic2plot)
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((pic2plot . t)))
+#+end_src
+
+#+RESULTS:
+
+#+begin_src emacs-lisp
+(add-to-list 'auto-mode-alist '("\\.ps\\'" . doc-view-mode))
+#+end_src
+* An Example
+#+header: :file output.png
+#+begin_src pic2plot
+box "START"; arrow; circle dashed filled; arrow
+circle diam 2 thickness 3 "This is a" "big, thick" "circle" dashed; up
+arrow from top of last circle; ellipse "loopback" dashed
+arrow dotted from left of last ellipse to top of last box
+arc cw radius 1/2 from top of last ellipse; arrow
+box "END"
+#+end_src
+
+#+RESULTS:
+[[file:output.png]]
+
+[[file:output.png]]
+#+RESULTS:
+
+#+header: :cmdline -T X
+#+begin_src pic
+box "START"; arrow; circle dashed filled; arrow
+circle diam 2 thickness 3 "This is a" "big, thick" "circle" dashed; up
+arrow from top of last circle; ellipse "loopback" dashed
+arrow dotted from left of last ellipse to top of last box
+arc cw radius 1/2 from top of last ellipse; arrow
+ box "END"
+#+end_src
+
+#+RESULTS:
+
+#+header: :cmdline -T X
+#+begin_src pic
+circle diam 2 thickness 3 "This is a" "big, thick" "circle" dashed; up
+#+end_src
+
+#+RESULTS:
+
+#+header: :file output.gif
+#+header: :cmdline -T gif
+#+header:  :debug t
+#+begin_src pic2plot
+box "START"; arrow; circle dashed filled; arrow
+circle diam 2 thickness 3 "This is a" "big, thick" "circle" dashed; up
+arrow from top of last circle; ellipse "loopback" dashed
+arrow dotted from left of last ellipse to top of last box
+arc cw radius 1/2 from top of last ellipse; arrow
+box "END"
+#+end_src
+
+#+RESULTS:
+[[file:output.gif]]
+
+#+header: :file output.svg
+#+header: :cmdline -T svg
+#+begin_src pic
+box "START"; arrow; circle dashed filled; arrow
+circle diam 2 thickness 3 "This is a" "big, thick" "circle" dashed; up
+arrow from top of last circle; ellipse "loopback" dashed
+arrow dotted from left of last ellipse to top of last box
+arc cw radius 1/2 from top of last ellipse; arrow
+box "END"
+#+end_src
+
+#+RESULTS:
+[[file:output.svg]]
