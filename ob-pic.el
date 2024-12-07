@@ -1,9 +1,10 @@
-;;; ob-pic.el --- Babel Functions for pic            -*- lexical-binding: t; -*-
-;;
+;;; ob-pic.el --- Org babel functions for pic language  -*- lexical-binding: t; -*-
+
+;; Copyright (C) 2024  Daniel E. Doherty
+
 ;; Author: Daniel E. Doherty <ded-obpic@ddoherty.net>
+;; Keywords: org, babel, pic
 ;; Version: 1.0.0
-;; Keywords: org babel
-;; URL: https://github.com/ddoherty03/ob-pic
 ;;
 ;;; Commentary:
 ;;
