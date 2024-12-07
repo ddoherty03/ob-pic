@@ -3,9 +3,10 @@
 ;; Copyright (C) 2024  Daniel E. Doherty
 
 ;; Author: Daniel E. Doherty <ded-obpic@ddoherty.net>
-;; Keywords: org, babel, pic
+;; Keywords: org, babel, pic, tools
+;; Created: 2024-12-07
 ;; Package-Requires: ((emacs "24.1"))
-;; Version: 1.0.0
+;; Package-Version: 1.0.0
 
 ;;; Commentary:
 ;;
