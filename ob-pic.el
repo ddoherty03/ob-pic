@@ -4,6 +4,7 @@
 
 ;; Author: Daniel E. Doherty <ded-obpic@ddoherty.net>
 ;; Keywords: org, babel, pic, tools
+;; Homepage: https://github.com/ob-pic
 ;; Created: 2024-12-07
 ;; Package-Requires: ((emacs "24.1"))
 ;; Package-Version: 1.0.0
