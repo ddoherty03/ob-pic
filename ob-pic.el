@@ -1,9 +1,16 @@
 ;;; ob-pic.el --- Babel Functions for pic            -*- lexical-binding: t; -*-
 ;;
+;; Author: Daniel E. Doherty <ded-obpic@ddoherty.net>
+;; Version: 1.0.0
+;; Keywords: org babel
+;; URL: https://github.com/ddoherty03/ob-pic
+;;
 ;;; Commentary:
 ;;
 ;; Org-Babel support for evaluating pic source code.
 ;;
+;; For usage information on this package, see https://github.com/ddoherty03/ob-pic
+
 ;; For information on pic see https://pikchr.org/home/uv/pic.pdf and
 ;;   on gpic at https://pikchr.org/home/uv/gpic.pdf
 ;;
@@ -30,12 +37,10 @@
 ;;    assumes an output type of "png".  If you use "X", it will pop up an X
 ;;    window with the graph displayed.
 ;;
-;; 6)
-;;
-;;
 ;;; Code:
 ;;
-;;; ob-pic2plot.el --- org-babel functions for pic2plot -*- lexical-binding: t; -*-
+
+;; -*- lexical-binding: t; -*-
 
 (require 'ob)
 (require 'ob-eval)
@@ -45,7 +50,7 @@
   "Default arguments for evaluating a pic2plot source block.")
 
 (defun org-babel-execute:pic (body params)
-  "Execute a block of pic code with org-babel.
+  "Execute a block of pic code from BODY with PARAMS from org-babel.
 This function is called by `org-babel-execute-src-block'."
   (let* ((user-cmdline (or (cdr (assq :cmdline params)) ""))
          ;; Match "-T" followed by one or more spaces and then "X"
@@ -89,7 +94,7 @@ This function is called by `org-babel-execute-src-block'."
 
 (defun org-babel-prep-session:pic (_session _params)
   "Return an error because pic2plot does not support sessions."
-  (error "pic2plot does not support sessions"))
+  (error "Language 'pic' does not support sessions"))
 
 (add-to-list 'org-babel-tangle-lang-exts '("pic" . "pic"))
 
