@@ -4,8 +4,9 @@
 
 ;; Author: Daniel E. Doherty <ded-obpic@ddoherty.net>
 ;; Keywords: org, babel, pic
+;; Package-Requires: ((emacs "24.1"))
 ;; Version: 1.0.0
-;;
+
 ;;; Commentary:
 ;;
 ;; Org-Babel support for evaluating pic source code.
@@ -37,11 +38,8 @@
 ;;    "hpgl", "regis", "tek", and "meta".  By default, this implementation
 ;;    assumes an output type of "png".  If you use "X", it will pop up an X
 ;;    window with the graph displayed.
-;;
-;;; Code:
-;;
 
-;; -*- lexical-binding: t; -*-
+;;; Code:
 
 (require 'ob)
 (require 'ob-eval)
