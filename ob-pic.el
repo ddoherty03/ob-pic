@@ -1,4 +1,4 @@
-;;; ob-pic.el --- Org babel functions for pic language  -*- lexical-binding: t; -*-
+;;; ob-pic.el --- Org babel functions for pic language
 
 ;; Copyright (C) 2024  Daniel E. Doherty
 
