@@ -60,6 +60,8 @@ This function is called by `org-babel-execute-src-block'."
                       nil
                     (or (cdr (assq :file params))
                         (error "You must specify a :file header argument for non-X output types"))))
+         ;; Resolve outfile path relative to default-directory
+         (outfile (expand-file-name outfile default-directory))
          ;; Ensure -T png is included in the cmdline unless overridden
          (cmdline (if (string-match-p "-T" user-cmdline)
                       user-cmdline
@@ -70,12 +72,6 @@ This function is called by `org-babel-execute-src-block'."
                   (format "pic2plot %s %s; read"
                           cmdline
                           (shell-quote-argument infile))
-                ;; (format "pic2plot %s %s"
-                ;;           cmdline
-                ;;           (shell-quote-argument infile))
-                  ;; (format "pic2plot %s %s"
-                  ;;         cmdline
-                  ;;         (shell-quote-argument infile))
                 (format "pic2plot %s %s > %s"
                         cmdline
                         (shell-quote-argument infile)
@@ -83,6 +79,8 @@ This function is called by `org-babel-execute-src-block'."
     ;; Write the body with .PS/.PE tags to the input file
     (with-temp-file infile
       (insert (format ".PS\n%s\n.PE\n" body)))
+    (message "Input file: %s" infile)
+    (message "Output file: %s" outfile)
     (message "Running command: %s" cmd)
     ;; Execute the command
     (if is-x-output
@@ -94,7 +92,7 @@ This function is called by `org-babel-execute-src-block'."
     nil))
 
 (defun org-babel-prep-session:pic (_session _params)
-  "Return an error because pic2plot does not support sessions."
+  "Return an error because pic does not support sessions."
   (error "Language 'pic' does not support sessions"))
 
 (add-to-list 'org-babel-tangle-lang-exts '("pic" . "pic"))
