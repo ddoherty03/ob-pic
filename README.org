@@ -23,7 +23,7 @@ this package depends.
 This package allows a source block to use the =pic= language designator on a
 source block:
 
-#+header: :file output.png
+#+header: :file output.png :export results
 #+begin_src pic
 down;
 box "Emacs"; arrow;box "OrgMode"; arrow
@@ -31,7 +31,6 @@ box "begin_src" "pic"; arrow; box "ob-pic"; arrow;
 box "pic2plot"; arrow; box "output.png"
 #+end_src
 
-#+RESULTS:
 [[file:output.png]]
 
 The block requires a =:file= argument (except with the -T X output format).
