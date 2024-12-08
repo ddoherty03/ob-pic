@@ -77,3 +77,4 @@ There is an [[info:plotutils#pic2plot Invocation][info node]] for this program i
 package, but it also has its documentation available [[https://www.gnu.org/software/plotutils/manual/en/html_node/pic2plot-Invocation.html][here]].
 
 * Report Bugs
+Bugs should be reported on github at [[https://github.com/ddoherty03/ob-pic][this URL]].
