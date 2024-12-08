@@ -47,8 +47,8 @@
 (require 'ob-eval)
 
 (defvar org-babel-default-header-args:pic
-  '((:results . "file") (:exports . "results"))
-  "Default arguments for evaluating a pic2plot source block.")
+  '((:results . "file link") (:exports . "results"))
+  "Default arguments for evaluating a pic source block.")
 
 (defun org-babel-execute:pic (body params)
   "Execute a block of pic code from BODY with PARAMS from org-babel.
