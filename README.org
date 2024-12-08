@@ -70,10 +70,10 @@ called =gpic= in [[https://pikchr.org/home/uv/gpic.pdf][this paper]].
 
 In addition, Dwight Aplevitch has implemented a version of =pic= called
 =dpic=, which is capable of outputing several additional formats, including
-TikZ for LaTeX.
+TikZ for LaTeX.  His documentation is also available [[https://ece.uwaterloo.ca/~aplevich/dpic/dpic-doc.pdf][online]].
 
 ** The =pic2plot= Program
 There is an [[info:plotutils#pic2plot Invocation][info node]] for this program if you have installed the =plotutils=
-package.
+package, but it also has its documentation available [[https://www.gnu.org/software/plotutils/manual/en/html_node/pic2plot-Invocation.html][here]].
 
 * Report Bugs
