@@ -1,6 +1,6 @@
 /*.pic
-/*.png
+/examples/*.png
 /*.gif
 /*.ps
 /*.svg
-*.png
+/examples/images/
