@@ -1,3 +1,79 @@
 * Install
+When released on MELPA, this package can be installed with =package-install=
+or a =use-package= block.
+
+In order for it to work, you must have the GNU =plotutils= package installed
+on your system and in your path.  It contains the =pic2plot= program on which
+this package depends.
+
+** For Ubuntu
+
+#+begin_src sh
+  sudo apt install plotutils
+#+end_src
+
+** For Arch
+
+#+begin_src sh
+  sudo pacman -Sy plotutils
+#+end_src
+
 * Usage
+** Source Blocks
+This package allows a source block to use the =pic= language designator on a
+source block:
+
+#+header: :file output.png
+#+begin_src pic
+down;
+box "Emacs"; arrow;box "OrgMode"; arrow
+box "begin_src" "pic"; arrow; box "ob-pic"; arrow;
+box "pic2plot"; arrow; box "output.png"
+#+end_src
+
+#+RESULTS:
+[[file:output.png]]
+
+The block requires a =:file= argument (except with the -T X output format).
+By default, it outputs a =png= file, but this can be adjusted by providing a
+=:cmdline= argument with the value =-T <type>=, where =<type>= is one of the
+types supported by =pic2plot=:
+
+- =X= :: the X Window System (no :file argument needed)
+- =png= :: PNG format
+- =pnm= :: portable anymap (PBM/PGM/PPM) format
+- =gif= :: pseudo-GIF format
+- =svg= :: the XML-based Scalable Vector Graphics format
+- =ai= :: the format used by Adobe Illustrator
+- =ps= :: `idraw'-editable Postscript
+- =cgm= :: the WebCGM format for Web-based vector graphics
+- =fig= :: the format used by the `xfig' drawing editor
+- =pcl= :: the Hewlett-Packard PCL 5 printer language
+- =hpgl= :: Hewlett-Packard Graphics Language (by default, HP-GL/2)
+- =regis= :: the ReGIS (remote graphics instruction set) format developed by
+  DEC
+- =tek= :: Tektronix format
+- =meta= :: device-independent GNU graphics metafile format
+
+With the =-T X= argument, an X window containing the graphic will pop up.
+
+In actual pic code, each picture must be started with a ".PS" directive and
+ended with ".PE".  =ob-pic= adds those delimiters automatically.
+
+** The =pic= Language
+As for the =pic= language, perhaps the best source is Brian Kernighan's
+original Bell Labs Computing Science Technical Report No. 116 on the language
+from 1991, which can be found [[https://pikchr.org/home/uv/pic.pdf][here]].  There is even an earlier paper from [[https://dl.acm.org/doi/pdf/10.1145/872730.806459][1981]].
+
+Eric S. Raymond also describes the GNU implementation of the language,
+called =gpic= in [[https://pikchr.org/home/uv/gpic.pdf][this paper]].
+
+In addition, Dwight Aplevitch has implemented a version of =pic= called
+=dpic=, which is capable of outputing several additional formats, including
+TikZ for LaTeX.
+
+** The =pic2plot= Program
+There is an [[info:plotutils#pic2plot Invocation][info node]] for this program if you have installed the =plotutils=
+package.
+
 * Report Bugs
