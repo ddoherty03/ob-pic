@@ -1,20 +1,35 @@
 ;;; ob-pic.el --- Org babel functions for pic language -*- lexical-binding: t;
-
+;;
 ;; Copyright (C) 2024  Daniel E. Doherty
-
+;;
 ;; Author: Daniel E. Doherty <ded-obpic@ddoherty.net>
 ;; Keywords: org, babel, pic, tools
 ;; Homepage: https://github.com/ob-pic
+;; SPDX-License-Identifier: MIT
 ;; Created: 2024-12-07
 ;; Package-Requires: ((emacs "24.1"))
 ;; Package-Version: 1.0.0
-
+;;
 ;;; Commentary:
 ;;
 ;; Org-Babel support for evaluating pic source code.
 ;;
-;; For usage information on this package, see https://github.com/ddoherty03/ob-pic
-
+;; This package allows a source block to use the =pic= language designator on a
+;; source block:
+;;
+;;  #+header: :file output.png
+;;  #+begin_src pic
+;;    down;
+;;    box "Emacs"; arrow;box "OrgMode"; arrow
+;;    box "begin_src" "pic"; arrow; box "ob-pic"; arrow;
+;;    box "pic2plot"; arrow; box "output.png"
+;;  #+end_src
+;;
+;; This produces a PNG file containing the generated diagram in output.png in
+;; the current directory.
+;;
+;; For further usage information on this package, see https://github.com/ddoherty03/ob-pic
+;;
 ;; For information on pic see https://pikchr.org/home/uv/pic.pdf and
 ;;   on gpic at https://pikchr.org/home/uv/gpic.pdf
 ;;
@@ -40,7 +55,7 @@
 ;;    "hpgl", "regis", "tek", and "meta".  By default, this implementation
 ;;    assumes an output type of "png".  If you use "X", it will pop up an X
 ;;    window with the graph displayed.
-
+;;
 ;;; Code:
 
 (require 'ob)
