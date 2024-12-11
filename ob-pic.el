@@ -82,6 +82,12 @@ This function is called by `org-babel-execute-src-block'."
                       user-cmdline
                     (concat "-T png " user-cmdline)))
          (infile (org-babel-temp-file "pic-"))
+         ;; Check if .PS and .PE delimiters are already in the body
+         (use-custom-delimiters (and (string-match-p "^[[:space:]]*\\.PS" body)
+                                     (string-match-p "\\.PE[[:space:]]*$" body)))
+         (final-body (if use-custom-delimiters
+                         body
+                       (format ".PS\n%s\n.PE\n" body)))
          (cmd (if is-x-output
                   ;; Append 'read' to keep the process open
                   (format "pic2plot %s %s; read"
@@ -93,7 +99,7 @@ This function is called by `org-babel-execute-src-block'."
                         (shell-quote-argument outfile)))))
     ;; Write the body with .PS/.PE tags to the input file
     (with-temp-file infile
-      (insert (format ".PS\n%s\n.PE\n" body)))
+      (insert final-body))
     (message "Input file: %s" infile)
     (message "Output file: %s" outfile)
     (message "Running command: %s" cmd)
