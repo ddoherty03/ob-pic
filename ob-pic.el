@@ -76,7 +76,9 @@ This function is called by `org-babel-execute-src-block'."
                     (or (cdr (assq :file params))
                         (error "You must specify a :file header argument for non-X output types"))))
          ;; Resolve outfile path relative to default-directory
-         (outfile (expand-file-name outfile default-directory))
+         (outfile (if is-x-output
+                      nil
+                    (expand-file-name outfile default-directory)))
          ;; Ensure -T png is included in the cmdline unless overridden
          (cmdline (if (string-match-p "-T" user-cmdline)
                       user-cmdline
