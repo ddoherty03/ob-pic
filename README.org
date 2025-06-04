@@ -59,15 +59,21 @@ types supported by =pic2plot=:
 With the =-T X= argument, an X window containing the graphic will pop up.
 
 In actual pic code, each picture must be started with a ".PS" directive and
-ended with ".PE".  =ob-pic= adds those delimiters automatically.
+ended with ".PE".  =ob-pic= adds those delimiters automatically if you do not
+put them in the block yourself.  If you want to pass parameters on the .PS
+line, then make the delimiters explicit.
+
+Any other ~:cmdline~ parameters are passed on to ~pic2plot~ unaltered.
 
 ** The =pic= Language
-As for the =pic= language, perhaps the best source is Brian Kernighan's
-original Bell Labs Computing Science Technical Report No. 116 on the language
-from 1991, which can be found [[https://pikchr.org/home/uv/pic.pdf][here]].  There is even an earlier paper from [[https://dl.acm.org/doi/pdf/10.1145/872730.806459][1981]].
+As for the =pic= language, the classic source is Brian Kernighan's original
+Bell Labs Computing Science Technical Report No. 116 on the language from
+1991, which can be found [[https://pikchr.org/home/uv/pic.pdf][here]].  There is even an earlier paper from [[https://dl.acm.org/doi/pdf/10.1145/872730.806459][1981]].
 
 Eric S. Raymond also describes the GNU implementation of the language,
-called =gpic= in [[https://pikchr.org/home/uv/gpic.pdf][this paper]].
+called =gpic= in [[https://pikchr.org/home/uv/gpic.pdf][this paper]].  It enhances ~pic~ language in several important
+respects, and ~pic2plot~ appears to support most of them, for example adding
+rounded corners to boxes.
 
 In addition, Dwight Aplevitch has implemented a version of =pic= called
 =dpic=, which is capable of outputing several additional formats, including
