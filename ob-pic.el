@@ -4,11 +4,11 @@
 ;;
 ;; Author: Daniel E. Doherty <ded-obpic@ddoherty.net>
 ;; Keywords: org, babel, pic, tools
-;; Homepage: https://github.com/ob-pic
+;; Homepage: https://github.com/ddoherty03/ob-pic
 ;; SPDX-License-Identifier: MIT
 ;; Created: 2024-12-07
 ;; Package-Requires: ((emacs "24.1"))
-;; Package-Version: 1.0.0
+;; Package-Version: 1.0.1
 ;;
 ;;; Commentary:
 ;;
