@@ -1,3 +1,4 @@
+* Setup
 #+begin_src emacs-lisp
 (require 'ob-pic2plot)
 (org-babel-do-load-languages
@@ -10,7 +11,7 @@
 #+begin_src emacs-lisp
 (add-to-list 'auto-mode-alist '("\\.ps\\'" . doc-view-mode))
 #+end_src
-* An Example
+* Pic Examples
 #+header: :file output.png :results graphics :dir images
 #+begin_src pic
 box "START"; arrow; circle dashed filled; arrow
@@ -43,9 +44,9 @@ circle diam 2 thickness 3 "This is a" "big, thick" "circle" dashed; up
 
 #+RESULTS:
 
-cpg#+header: :file output.gif
+#+header: :file output.gif
 #+header: :cmdline -T gif
-#+begin_src pic2plot
+#+begin_src pic
 box "START"; arrow; circle dashed filled; arrow
 circle diam 2 thickness 3 "This is a" "big, thick" "circle" dashed; up
 arrow from top of last circle; ellipse "loopback" dashed
@@ -57,16 +58,34 @@ box "END"
 #+RESULTS:
 [[file:output.gif]]
 
+* Dpic Examples
+** Outputs SVG by default
+You can preview this file type directly within Emacs, but SVG figures are
+transparent, so with a dark theme, the lines can be invisible on screen, so
+try a light theme when working interactively.
+
 #+header: :file output.svg
-#+header: :cmdline -T svg
-#+begin_src pic
-box "START"; arrow; circle dashed filled; arrow
-circle diam 2 thickness 3 "This is a" "big, thick" "circle" dashed; up
-arrow from top of last circle; ellipse "loopback" dashed
-arrow dotted from left of last ellipse to top of last box
-arc cw radius 1/2 from top of last ellipse; arrow
-box "END"
+#+begin_src dpic
+ box width 2 "START 'ER UP"; arrow; ellipse "END"
 #+end_src
 
 #+RESULTS:
 [[file:output.svg]]
+
+** Outputting PDF file
+By default, org-mode will not display PDF files in-line, but you can install
+the package ~org-inline-pdf~ to make it do so using the =pdf2svg= command,
+which must be installed on your system.
+
+#+ATTR_ORG: :width 40%
+#+header: :file output.pdf
+#+header: :cmdline -d
+#+begin_src dpic
+ box width 2 "START 'ER UP"; arrow; ellipse "END"
+#+end_src
+
+#+RESULTS:
+#+ATTR_ORG: :width 40%
+[[file:output.pdf]]
+
+#+RESULTS:
